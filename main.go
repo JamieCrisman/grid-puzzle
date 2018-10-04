@@ -45,7 +45,7 @@ func validate(s state.State, startingPosition int) bool {
 	count := 1
 	steps[startingPosition] = count
 	for i := 0; i < len(s.Values)-1; i++ {
-		if !state.Valid(position, len(s.Values)) {
+		if !state.Valid(position, len(s.Values)) || steps[position] != 0 {
 			return false
 		}
 		nextOffset = s.Values[position]
